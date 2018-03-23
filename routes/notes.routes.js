@@ -5,5 +5,6 @@ const secureMiddleware = require('../middleware/secure.middleware');
 
 router.post('/', notesController.create);
 router.get('/', notesController.showAll);
+router.get('/:id', notesController.showOne);
 
 module.exports = router;

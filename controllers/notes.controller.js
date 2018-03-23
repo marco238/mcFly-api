@@ -19,3 +19,11 @@ module.exports.showAll = (req, res, next) => {
   .then(notes =>  res.json(notes))
   .catch(error => next(new ApiError(error.message, 503)));
 };
+
+module.exports.showOne = (req, res, next) => {
+  const noteId = req.params.id;
+
+  Note.findById(noteId)
+    .then(note => res.json(note))
+    .catch(error => next(new ApiError(error.message, 404)));
+};
