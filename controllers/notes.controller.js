@@ -27,3 +27,22 @@ module.exports.showOne = (req, res, next) => {
     .then(note => res.json(note))
     .catch(error => next(new ApiError(error.message, 404)));
 };
+
+module.exports.giveStar = (req, res, next) => {
+  const id = req.params.id;
+
+  Note.findByIdAndUpdate(id, { $set: {outstanding: true} }, { new: true })
+   .then(note => {
+     if (note) {
+       res.status(200).json(note);
+     } else {
+       next(new ApiError(`Note not found`, 404));
+     }
+   }).catch(error => next(error));
+ };
+
+ module.exports.showOutstanding = (req, res, next) => {
+   Note.find( {outstanding: true} )
+   .then(notes =>  res.json(notes))
+   .catch(error => next(new ApiError(error.message, 503)));
+ };
