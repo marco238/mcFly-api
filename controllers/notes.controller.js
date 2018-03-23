@@ -13,3 +13,9 @@ module.exports.create = (req, res, next) => {
   .then(note => res.status(201).json(note))
   .catch(error => next(new ApiError(error.message, 503)));
 };
+
+module.exports.showAll = (req, res, next) => {
+  Note.find()
+  .then(notes =>  res.json(notes))
+  .catch(error => next(new ApiError(error.message, 503)));
+};
