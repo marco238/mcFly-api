@@ -46,3 +46,11 @@ module.exports.giveStar = (req, res, next) => {
    .then(notes =>  res.json(notes))
    .catch(error => next(new ApiError(error.message, 503)));
  };
+
+ module.exports.destroy = (req, res, next) => {
+   const noteId = req.params.id;
+
+   Note.findByIdAndRemove(noteId)
+   .then(note => res.status(204).json())
+   .catch(error => next(new ApiError(error.message, 404)));
+};
