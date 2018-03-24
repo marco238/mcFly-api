@@ -1,12 +1,13 @@
 {
 	"info": {
-		"_postman_id": "ec97ab8a-dd99-446c-9362-2fc8afe1d611",
 		"name": "mcFly-api",
+		"_postman_id": "d3eba718-5dd9-c5a1-599f-86acc1ba49ca",
+		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Login",
+			"name": "Signup",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -30,6 +31,35 @@
 						"users"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"popo@popo.com\",\n\t\"password\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/session",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"session"
+					]
+				},
+				"description": ""
 			},
 			"response": []
 		},
@@ -94,7 +124,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3000/notes/5ab586cbe5c9dd48c7f3abb1",
 					"protocol": "http",
@@ -115,7 +148,10 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3000/notes/5ab59435f9f627695aafe97c",
 					"protocol": "http",
@@ -136,7 +172,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3000/notes/stars",
 					"protocol": "http",
@@ -157,7 +196,10 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3000/notes/5ab5941ef9f627695aafe97b",
 					"protocol": "http",
