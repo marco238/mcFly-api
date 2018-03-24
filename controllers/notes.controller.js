@@ -16,7 +16,7 @@ module.exports.create = (req, res, next) => {
 
 module.exports.showAll = (req, res, next) => {
   Note.find()
-  .then(notes =>  res.json(notes))
+  .then(notes =>  res.status(200).json(notes))
   .catch(error => next(new ApiError(error.message, 503)));
 };
 
@@ -24,7 +24,7 @@ module.exports.showOne = (req, res, next) => {
   const noteId = req.params.id;
 
   Note.findById(noteId)
-    .then(note => res.json(note))
+    .then(note => res.status(200).json(note))
     .catch(error => next(new ApiError(error.message, 404)));
 };
 
@@ -43,7 +43,7 @@ module.exports.giveStar = (req, res, next) => {
 
  module.exports.showOutstanding = (req, res, next) => {
    Note.find( {outstanding: true} )
-   .then(notes =>  res.json(notes))
+   .then(notes =>  res.status(200).json(notes))
    .catch(error => next(new ApiError(error.message, 503)));
  };
 
