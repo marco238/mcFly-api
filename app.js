@@ -43,7 +43,7 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use('/notes', notesRoutes)
+app.use('/notes', notesRoutes);
 app.use('/users', usersRoutes);
 app.use('/session', sessionRoutes);
 
